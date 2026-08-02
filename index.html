@@ -15,9 +15,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css">
 <style>
 :root{
-  --azul:#3BA9E0;
-  --verde:#0FAF97;
-  --morado:#941E81;
   --tinta:#1B2430;
   --tinta-sec:#5B6472;
   --r-sm:10px;
@@ -52,7 +49,7 @@ h1,h2,h3{margin:0;}
 .reveal.visible{opacity:1;transform:none;}
 @media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none;}}
 
-@media (min-width:861px){body{padding-left:104px;padding-bottom:0;}}
+@media (min-width:861px){body{padding-left:150px;padding-bottom:0;}}
 
 /* texto en degradado */
 .gt{background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;}
@@ -88,13 +85,29 @@ h1,h2,h3{margin:0;}
 .marcador-foto span{font-size:12.5px;font-weight:500;color:var(--tinta-sec);}
 .marcador-foto small{font-size:10.5px;}
 
-/* intro: quiénes somos */
+/* intro: hero */
 .intro{max-width:1180px;margin:36px auto;padding:0 24px;display:grid;grid-template-columns:1.1fr 1fr;gap:24px;}
 @media (max-width:760px){.intro{grid-template-columns:1fr;}}
 .panel-foto{border-radius:var(--r-lg);min-height:460px;padding:20px;}
 @media (max-width:760px){.panel-foto{min-height:300px;}}
-.panel-texto{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:36px;box-shadow:var(--vidrio-sombra);display:flex;flex-direction:column;justify-content:center;gap:16px;}
+.panel-texto{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:40px;box-shadow:var(--vidrio-sombra);display:flex;flex-direction:column;justify-content:center;gap:18px;}
 .panel-texto p{margin:0;color:var(--tinta-sec);font-size:15.5px;}
+.hero-titulo{font-size:clamp(26px,3.2vw,36px);font-weight:700;line-height:1.28;}
+.divisor-degradado{width:110px;height:4px;border-radius:999px;background:linear-gradient(90deg,#33a8de,#4243ff);}
+.hero-botones{display:flex;flex-wrap:wrap;gap:14px;margin-top:6px;}
+.btn-primario{background:linear-gradient(135deg,#33a8de,#4243ff);color:#fff;padding:14px 26px;border-radius:999px;font-weight:600;font-size:14.5px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s;}
+.btn-primario:hover{transform:translateY(-2px);}
+
+/* franja de 4 columnas */
+.franja-features{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:30px 32px;box-shadow:var(--vidrio-sombra);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;}
+.feature{display:flex;flex-direction:column;gap:8px;}
+.feature-icono{width:42px;height:42px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:19px;}
+.feature h3{font-size:15px;font-weight:600;}
+.feature p{margin:0;font-size:13.5px;color:var(--tinta-sec);}
+.feature:nth-child(1) .feature-icono{background:rgba(15,175,151,.14);color:#0f8a76;}
+.feature:nth-child(2) .feature-icono{background:rgba(51,168,222,.14);color:#1c7fae;}
+.feature:nth-child(3) .feature-icono{background:rgba(245,173,33,.16);color:#a86a0a;}
+.feature:nth-child(4) .feature-icono{background:rgba(147,34,128,.14);color:#932280;}
 
 /* secciones generales */
 .seccion{max-width:1180px;margin:0 auto;padding:20px 24px;}
@@ -113,22 +126,42 @@ h1,h2,h3{margin:0;}
 .enlace-leer:hover i{transform:translateX(3px);}
 
 /* huella */
-.tarjeta-huella{background:rgba(255,255,255,.88);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.7);border-radius:var(--r-xl);box-shadow:var(--vidrio-sombra);padding:52px 32px;}
-.huella{display:flex;justify-content:space-around;flex-wrap:wrap;gap:32px;text-align:center;}
-.cifra{display:flex;flex-direction:column;gap:6px;align-items:center;}
-.cifra i{font-size:20px;color:var(--tinta-sec);}
-.cifra strong{font-size:clamp(34px,5vw,50px);font-weight:700;line-height:1;}
+.tarjeta-huella{background:rgba(255,255,255,.88);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.7);border-radius:var(--r-xl);box-shadow:var(--vidrio-sombra);padding:48px 32px;}
+.huella{display:flex;justify-content:center;flex-wrap:wrap;text-align:center;}
+.cifra{display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 40px;}
+.cifra:not(:last-child){border-right:1px solid rgba(27,36,48,.08);}
+@media (max-width:700px){
+  .huella{flex-direction:column;}
+  .cifra{padding:20px 0;}
+  .cifra:not(:last-child){border-right:none;border-bottom:1px solid rgba(27,36,48,.08);}
+}
+.cifra-icono{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.cifra strong{font-size:clamp(32px,4.5vw,46px);font-weight:700;line-height:1;}
 .cifra span{font-size:14px;color:var(--tinta-sec);}
+.cifra-pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:999px;margin-top:2px;}
+.cifra-pill i{font-size:12px;}
+.cifra:nth-child(1) .cifra-icono{background:rgba(15,175,151,.14);color:#0f8a76;}
+.cifra:nth-child(1) .cifra-pill{background:rgba(15,175,151,.12);color:#0f8a76;}
+.cifra:nth-child(2) .cifra-icono{background:rgba(147,34,128,.14);color:#932280;}
+.cifra:nth-child(2) .cifra-pill{background:rgba(147,34,128,.12);color:#932280;}
+.cifra:nth-child(3) .cifra-icono{background:rgba(89,60,24,.14);color:#7a5a1e;}
+.cifra:nth-child(3) .cifra-pill{background:rgba(89,60,24,.12);color:#7a5a1e;}
 
 /* servicios */
 .grid-servicios{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
-.tarjeta-servicio{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:30px 26px;box-shadow:var(--vidrio-sombra);display:flex;flex-direction:column;gap:14px;}
+.tarjeta-servicio{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:28px 26px;box-shadow:var(--vidrio-sombra);display:flex;flex-direction:column;gap:12px;}
 .icono-servicio{width:50px;height:50px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:22px;}
-.tarjeta-servicio:nth-child(1) .icono-servicio{background:rgba(59,169,224,.12);color:var(--azul);}
-.tarjeta-servicio:nth-child(2) .icono-servicio{background:rgba(15,175,151,.12);color:var(--verde);}
-.tarjeta-servicio:nth-child(3) .icono-servicio{background:rgba(148,30,129,.12);color:var(--morado);}
+.tarjeta-servicio:nth-child(1) .icono-servicio{background:rgba(24,174,151,.14);color:#0f8a76;}
+.tarjeta-servicio:nth-child(2) .icono-servicio{background:rgba(147,34,128,.14);color:#932280;}
+.tarjeta-servicio:nth-child(3) .icono-servicio{background:rgba(245,173,33,.16);color:#a86a0a;}
+.linea-servicio{width:26px;height:3px;border-radius:999px;margin-top:-4px;}
+.tarjeta-servicio:nth-child(1) .linea-servicio{background:linear-gradient(90deg,#18ae97,#004f69);}
+.tarjeta-servicio:nth-child(2) .linea-servicio{background:linear-gradient(90deg,#932280,#b0a4ff);}
+.tarjeta-servicio:nth-child(3) .linea-servicio{background:linear-gradient(90deg,#f5ad21,#67d11d);}
 .tarjeta-servicio h3{font-size:16.5px;font-weight:600;}
 .tarjeta-servicio p{margin:0;font-size:14.5px;color:var(--tinta-sec);}
+.foto-servicio{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3;margin-top:6px;}
+.foto-servicio .marcador-foto{position:absolute;inset:0;border-radius:var(--r-md);}
 
 /* aliados */
 .franja-aliados{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:36px 32px;box-shadow:var(--vidrio-sombra);}
@@ -138,27 +171,46 @@ h1,h2,h3{margin:0;}
 @media (max-width:600px){.fila-logos img{height:32px;}.fila-logos{gap:28px 32px;}}
 
 /* cta */
-.banda-cta{background:linear-gradient(135deg,rgba(147,34,128,.82),rgba(176,164,255,.82));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.5);box-shadow:0 10px 32px rgba(90,20,80,.16), inset 0 1px 0 rgba(255,255,255,.4);color:#fff;border-radius:var(--r-xl);padding:56px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;}
-.banda-cta h2{font-size:26px;font-weight:600;}
-.banda-cta p{margin:0;max-width:620px;color:rgba(255,255,255,.85);font-size:15.5px;}
+.banda-cta{background:linear-gradient(135deg,rgba(147,34,128,.82),rgba(176,164,255,.82));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.5);box-shadow:0 10px 32px rgba(90,20,80,.16), inset 0 1px 0 rgba(255,255,255,.4);color:#fff;border-radius:var(--r-xl);padding:44px;}
+.cta-superior{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:center;}
+@media (max-width:760px){.cta-superior{grid-template-columns:1fr;}}
+.cta-texto{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
+.cta-badge{width:56px;height:56px;border-radius:50%;background:#fff;color:#932280;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.banda-cta h2{font-size:30px;font-weight:700;}
+.banda-cta p{margin:0;color:rgba(255,255,255,.85);font-size:15.5px;}
+.banda-cta p b{color:#fff;font-weight:600;}
 .boton-cta{background:#fff;color:var(--tinta);border:2px solid #fff;padding:14px 30px;border-radius:999px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s;}
 .boton-cta:hover{transform:translateY(-2px);}
+.cta-foto{border-radius:28px;min-height:280px;}
+.marcador-foto-cta{border:2px dashed rgba(255,255,255,.5);color:rgba(255,255,255,.85);background:rgba(255,255,255,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;}
+.marcador-foto-cta i{font-size:26px;}
+.marcador-foto-cta span{font-size:12.5px;font-weight:500;}
+.marcador-foto-cta small{font-size:10.5px;opacity:.8;}
+.cta-pie{margin-top:32px;padding-top:26px;border-top:1px solid rgba(255,255,255,.25);display:flex;flex-wrap:wrap;justify-content:center;}
+.cta-item{display:flex;align-items:center;gap:12px;padding:0 28px;flex:1;min-width:220px;}
+.cta-item:not(:last-child){border-right:1px solid rgba(255,255,255,.25);}
+.cta-item-icono{width:44px;height:44px;border-radius:50%;background:#fff;color:#932280;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;}
+.cta-item-texto strong{display:block;font-size:14px;font-weight:600;}
+.cta-item-texto span{font-size:12.5px;color:rgba(255,255,255,.8);}
+@media (max-width:760px){
+  .cta-pie{flex-direction:column;}
+  .cta-item{padding:16px 0;}
+  .cta-item:not(:last-child){border-right:none;border-bottom:1px solid rgba(255,255,255,.25);}
+}
 
 /* pie */
 .pie{max-width:1180px;margin:0 auto;padding:36px 24px 20px;text-align:center;color:var(--tinta-sec);font-size:13px;}
 
 /* nav flotante */
-.nav-flotante{position:fixed;left:24px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.55);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:14px 10px;display:flex;flex-direction:column;gap:6px;box-shadow:0 8px 28px rgba(20,30,60,.10), inset 0 1px 0 rgba(255,255,255,.6);z-index:100;}
-.nav-flotante a{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--tinta-sec);font-size:20px;position:relative;transition:background .15s,color .15s;}
+.nav-flotante{position:fixed;z-index:100;background:rgba(255,255,255,.55);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 28px rgba(20,30,60,.10), inset 0 1px 0 rgba(255,255,255,.6);display:flex;gap:6px;}
+@media (min-width:861px){.nav-flotante{left:24px;top:50%;transform:translateY(-50%);border-radius:28px;padding:14px 10px;flex-direction:column;}}
+.nav-flotante a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:12px 16px;min-width:78px;border-radius:16px;color:var(--tinta-sec);font-size:11.5px;font-weight:600;transition:background .15s,color .15s;}
+.nav-flotante a i{font-size:20px;}
 .nav-flotante a:hover{background:rgba(255,255,255,.5);}
-.nav-flotante a.activo{background:rgba(255,255,255,.85);color:#4243ff;}
-.nav-flotante a .etiqueta{position:absolute;left:60px;background:var(--tinta);color:#fff;font-size:12px;font-weight:500;padding:6px 10px;border-radius:var(--r-sm);white-space:nowrap;opacity:0;transform:translateX(-6px);pointer-events:none;transition:.15s;}
-.nav-flotante a:hover .etiqueta{opacity:1;transform:translateX(0);}
+.nav-flotante a.activo{background:rgba(255,255,255,.9);color:#4243ff;}
 @media (max-width:860px){
-  .nav-flotante{left:12px;right:12px;top:auto;bottom:14px;transform:none;flex-direction:row;justify-content:space-around;padding:8px;border-radius:24px;padding-bottom:calc(8px + env(safe-area-inset-bottom));}
-  .nav-flotante a{width:auto;flex:1;flex-direction:column;gap:2px;font-size:19px;height:auto;padding:8px 0;border-radius:14px;}
-  .nav-flotante a .etiqueta{position:static;opacity:1;transform:none;background:none;color:inherit;font-size:10px;padding:0;pointer-events:auto;font-weight:500;}
-  .nav-flotante a.activo .etiqueta{color:#4243ff;}
+  .nav-flotante{left:12px;right:12px;bottom:14px;border-radius:24px;padding:8px;flex-direction:row;justify-content:space-around;padding-bottom:calc(8px + env(safe-area-inset-bottom));}
+  .nav-flotante a{flex:1;min-width:0;padding:8px 4px;}
 }
 </style>
 </head>
@@ -193,8 +245,38 @@ h1,h2,h3{margin:0;}
     <small>recomendado 1200×1400px</small>
   </div>
   <div class="panel-texto">
+    <h2 class="hero-titulo">Construimos redes para la transformación social</h2>
+    <div class="divisor-degradado"></div>
     <p>Somos una <b>organización no gubernamental</b> que busca <b>identificar</b> y <b>fomentar</b>, desde la investigación participativa, la construcción de redes de trabajo colaborativo con actores comprometidos con el cambio social.</p>
     <p>¡Unidos por la <span class="gt gt-transformacion">transformación social</span>!</p>
+    <div class="hero-botones">
+      <a class="btn-primario" href="contacto.html">Súmate a la red <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="seccion reveal">
+  <div class="franja-features">
+    <div class="feature">
+      <div class="feature-icono"><i class="ti ti-users-group" aria-hidden="true"></i></div>
+      <h3>Redes colaborativas</h3>
+      <p>Articulamos actores y comunidades.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icono"><i class="ti ti-search" aria-hidden="true"></i></div>
+      <h3>Investigación participativa</h3>
+      <p>Escuchamos, comprendemos y actuamos juntos.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icono"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+      <h3>Sostenibilidad</h3>
+      <p>Promovemos prácticas responsables y duraderas.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icono"><i class="ti ti-sparkles" aria-hidden="true"></i></div>
+      <h3>Impacto social</h3>
+      <p>Generamos cambios reales en el territorio.</p>
+    </div>
   </div>
 </section>
 
@@ -225,9 +307,24 @@ h1,h2,h3{margin:0;}
 <section class="seccion reveal">
   <div class="tarjeta-huella">
     <div class="huella">
-      <div class="cifra"><i class="ti ti-heart-handshake" aria-hidden="true"></i><strong class="gt gt-veinte">20</strong><span>aliados y cooperantes</span></div>
-      <div class="cifra"><i class="ti ti-users" aria-hidden="true"></i><strong class="gt gt-cuatromil">4.100</strong><span>beneficiarios</span></div>
-      <div class="cifra"><i class="ti ti-map-pin" aria-hidden="true"></i><strong class="gt gt-siete">Siete</strong><span>provincias activas</span></div>
+      <div class="cifra">
+        <div class="cifra-icono"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
+        <strong class="gt gt-veinte">20</strong>
+        <span>aliados y cooperantes</span>
+        <span class="cifra-pill"><i class="ti ti-check" aria-hidden="true"></i>Trabajamos en red</span>
+      </div>
+      <div class="cifra">
+        <div class="cifra-icono"><i class="ti ti-users" aria-hidden="true"></i></div>
+        <strong class="gt gt-cuatromil">4.100</strong>
+        <span>beneficiarios</span>
+        <span class="cifra-pill"><i class="ti ti-check" aria-hidden="true"></i>Historias que transforman</span>
+      </div>
+      <div class="cifra">
+        <div class="cifra-icono"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+        <strong class="gt gt-siete">7</strong>
+        <span>provincias activas</span>
+        <span class="cifra-pill"><i class="ti ti-check" aria-hidden="true"></i>Presencia territorial</span>
+      </div>
     </div>
   </div>
 </section>
@@ -238,17 +335,29 @@ h1,h2,h3{margin:0;}
     <div class="tarjeta-servicio">
       <div class="icono-servicio"><i class="ti ti-building" aria-hidden="true"></i></div>
       <h3>Empresas</h3>
+      <div class="linea-servicio"></div>
       <p>Construimos espacios de encuentro entre empresas y comunidades, impulsando iniciativas de impacto social sostenible que generan valor compartido.</p>
+      <div class="foto-servicio">
+        <div class="marcador-foto"><i class="ti ti-photo" aria-hidden="true"></i><span>foto</span><small>800×600px</small></div>
+      </div>
     </div>
     <div class="tarjeta-servicio">
       <div class="icono-servicio"><i class="ti ti-network" aria-hidden="true"></i></div>
       <h3>Organizaciones</h3>
+      <div class="linea-servicio"></div>
       <p>Unimos esfuerzos con organizaciones públicas y no gubernamentales que buscan potenciar sinergias que generen transformaciones sostenibles e impacto real.</p>
+      <div class="foto-servicio">
+        <div class="marcador-foto"><i class="ti ti-photo" aria-hidden="true"></i><span>foto</span><small>800×600px</small></div>
+      </div>
     </div>
     <div class="tarjeta-servicio">
       <div class="icono-servicio"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
       <h3>Promotores sociales</h3>
+      <div class="linea-servicio"></div>
       <p>Acompañamos agrupaciones sociales y colectivos en el desarrollo de iniciativas que fortalecen su organización e impulsan la promoción de agentes de cambio.</p>
+      <div class="foto-servicio">
+        <div class="marcador-foto"><i class="ti ti-photo" aria-hidden="true"></i><span>foto</span><small>800×600px</small></div>
+      </div>
     </div>
   </div>
 </section>
@@ -273,9 +382,33 @@ h1,h2,h3{margin:0;}
 
 <section class="seccion reveal">
   <div class="banda-cta">
-    <h2>Únete a nosotros</h2>
-    <p>En Redes Con Rostro creemos en el poder del trabajo colaborativo. Te extendemos una cálida invitación a formar parte de un proceso significativo: el tejido de redes colaborativas en pro de la transformación social.</p>
-    <a class="boton-cta" href="contacto.html">contáctanos <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    <div class="cta-superior">
+      <div class="cta-texto">
+        <div class="cta-badge"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
+        <h2>Únete a nosotros</h2>
+        <p>En Redes Con Rostro creemos en el poder del <b>trabajo colaborativo</b>. Te extendemos una cálida invitación a formar parte de un proceso significativo: el tejido de redes colaborativas en pro de la <b>transformación social</b>.</p>
+        <a class="boton-cta" href="contacto.html">Contáctanos <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="cta-foto marcador-foto-cta">
+        <i class="ti ti-photo" aria-hidden="true"></i>
+        <span>foto: manos unidas / equipo</span>
+        <small>recomendado 1000×1000px</small>
+      </div>
+    </div>
+    <div class="cta-pie">
+      <div class="cta-item">
+        <div class="cta-item-icono"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
+        <div class="cta-item-texto"><strong>Sumamos voluntades</strong><span>Creemos en el poder de las alianzas.</span></div>
+      </div>
+      <div class="cta-item">
+        <div class="cta-item-icono"><i class="ti ti-users-group" aria-hidden="true"></i></div>
+        <div class="cta-item-texto"><strong>Generamos impacto</strong><span>Trabajamos juntos por comunidades más fuertes.</span></div>
+      </div>
+      <div class="cta-item">
+        <div class="cta-item-icono"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+        <div class="cta-item-texto"><strong>Transformamos realidades</strong><span>Impulsamos cambios sostenibles y duraderos.</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
