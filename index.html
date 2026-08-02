@@ -20,12 +20,13 @@
   --morado:#941E81;
   --tinta:#1B2430;
   --tinta-sec:#5B6472;
-  --superficie:#FFFFFF;
   --r-sm:10px;
   --r-md:14px;
   --r-lg:20px;
   --r-xl:28px;
   --sombra:0 4px 24px rgba(20,40,80,.07);
+  --vidrio-blur:blur(20px) saturate(180%);
+  --vidrio-sombra:0 4px 24px rgba(20,40,80,.07), inset 0 1px 0 rgba(255,255,255,.5);
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -33,7 +34,12 @@ body{
   margin:0;
   font-family:'Outfit',sans-serif;
   color:var(--tinta);
-  background:linear-gradient(135deg,#e8f4fd,#eef0ff,#e8faf7);
+  background:
+    radial-gradient(600px circle at 12% 18%, rgba(51,168,222,.20), transparent 60%),
+    radial-gradient(520px circle at 88% 12%, rgba(147,34,128,.16), transparent 60%),
+    radial-gradient(650px circle at 78% 78%, rgba(24,174,151,.18), transparent 60%),
+    radial-gradient(520px circle at 8% 88%, rgba(245,173,33,.15), transparent 60%),
+    linear-gradient(135deg,#e8f4fd,#eef0ff,#e8faf7);
   background-attachment:fixed;
   line-height:1.65;
   padding-bottom:96px;
@@ -48,23 +54,33 @@ h1,h2,h3{margin:0;}
 
 @media (min-width:861px){body{padding-left:104px;padding-bottom:0;}}
 
+/* texto en degradado */
+.gt{background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;}
+.gt-cuidado{background-image:linear-gradient(135deg,#33a8de,#4243ff);}
+.gt-sostenibilidad{background-image:linear-gradient(135deg,#f5ad21,#67d11d);}
+.gt-impacto{background-image:linear-gradient(135deg,#932280,#b0a4ff);}
+.gt-transformacion{background-image:linear-gradient(135deg,#33a8de,#4243ff);font-weight:600;}
+.gt-fecha{background-image:linear-gradient(135deg,#d43118,#ff82d4);}
+.gt-veinte{background-image:linear-gradient(135deg,#18ae97,#004f69);}
+.gt-cuatromil{background-image:linear-gradient(135deg,#932280,#b0a4ff);}
+.gt-siete{background-image:linear-gradient(135deg,#593c18,#98a06a);}
+
 /* encabezado */
 .encabezado{padding:32px 24px 0;}
-.fila-marca{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
-.logo-rcr{height:60px;width:auto;}
-.eslogan{font-size:clamp(22px,3.2vw,32px);font-weight:600;text-align:right;letter-spacing:-0.01em;}
-@media (max-width:600px){.eslogan{text-align:left;font-size:24px;}}
-.e-azul{color:var(--azul);}
-.e-verde{color:var(--verde);}
-.e-morado{color:var(--morado);}
+.fila-marca{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+.logo-rcr{height:96px;width:auto;}
+@media (max-width:600px){.logo-rcr{height:68px;}}
+.eslogan{font-size:clamp(24px,3.4vw,36px);font-weight:700;text-align:right;letter-spacing:-0.01em;line-height:1.15;}
+@media (max-width:600px){.eslogan{text-align:left;font-size:23px;}}
 
-.barra-utilidad{max-width:1180px;margin:20px auto 0;background:var(--superficie);border-radius:999px;padding:8px 10px 8px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:var(--sombra);}
-.idioma{display:flex;align-items:center;gap:8px;background:none;border:none;font-family:inherit;font-size:14px;color:var(--tinta-sec);cursor:pointer;padding:8px 12px;border-radius:var(--r-sm);}
-.idioma:hover{background:#f2f4f8;}
-.idioma i{font-size:16px;}
-.redes-header{display:flex;gap:6px;flex-wrap:wrap;}
-.redes-header a{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#f2f4f8;color:var(--tinta-sec);font-size:16px;transition:background .15s,color .15s;}
-.redes-header a:hover{background:var(--tinta);color:#fff;}
+.barra-utilidad{max-width:1180px;margin:24px auto 0;background:rgba(255,255,255,.55);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 6px 22px rgba(20,30,60,.07), inset 0 1px 0 rgba(255,255,255,.7);}
+.idioma{display:flex;align-items:center;gap:8px;background:none;border:none;font-family:inherit;font-size:14px;color:var(--tinta-sec);cursor:pointer;padding:8px 10px;border-radius:var(--r-sm);}
+.idioma:hover{color:var(--tinta);}
+.idioma i{font-size:18px;}
+.redes-header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.redes-header a{display:flex;align-items:center;justify-content:center;color:var(--tinta-sec);font-size:19px;padding:4px;transition:color .15s;}
+.redes-header a:hover{color:var(--tinta);}
+.redes-header svg{display:block;}
 
 /* marcador de foto reutilizable */
 .marcador-foto{border:2px dashed #c7cfdb;color:#8b93a1;background:rgba(255,255,255,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;}
@@ -73,27 +89,23 @@ h1,h2,h3{margin:0;}
 .marcador-foto small{font-size:10.5px;}
 
 /* intro: quiénes somos */
-.intro{max-width:1180px;margin:56px auto;padding:0 24px;display:grid;grid-template-columns:0.85fr 1fr 1.3fr;gap:20px;}
-@media (max-width:860px) and (min-width:601px){.intro{grid-template-columns:1fr 1fr;} .panel-texto{grid-column:1/3;}}
-@media (max-width:600px){.intro{grid-template-columns:1fr;}}
-.panel-foto{border-radius:var(--r-lg);min-height:280px;padding:20px;}
-.panel-ilustracion{border-radius:var(--r-lg);overflow:hidden;min-height:280px;background:#dff1fc;position:relative;}
-.panel-ilustracion svg{position:absolute;inset:0;width:100%;height:100%;}
-.panel-texto{background:var(--superficie);border-radius:var(--r-lg);padding:36px;box-shadow:var(--sombra);display:flex;flex-direction:column;justify-content:center;gap:16px;}
-.eyebrow{font-size:20px;font-weight:700;color:var(--azul);}
+.intro{max-width:1180px;margin:36px auto;padding:0 24px;display:grid;grid-template-columns:1.1fr 1fr;gap:24px;}
+@media (max-width:760px){.intro{grid-template-columns:1fr;}}
+.panel-foto{border-radius:var(--r-lg);min-height:460px;padding:20px;}
+@media (max-width:760px){.panel-foto{min-height:300px;}}
+.panel-texto{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:36px;box-shadow:var(--vidrio-sombra);display:flex;flex-direction:column;justify-content:center;gap:16px;}
 .panel-texto p{margin:0;color:var(--tinta-sec);font-size:15.5px;}
-.destaque{color:var(--azul);font-weight:600;}
 
 /* secciones generales */
-.seccion{max-width:1180px;margin:0 auto;padding:40px 24px;}
-.titulo-seccion{font-size:24px;font-weight:600;margin:0 0 26px;}
+.seccion{max-width:1180px;margin:0 auto;padding:20px 24px;}
+.titulo-seccion{font-size:24px;font-weight:600;margin:0 0 22px;}
 
 /* noticias */
-.grid-noticias{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
-.tarjeta-noticia{background:var(--superficie);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sombra);}
+.grid-noticias{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.tarjeta-noticia{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--vidrio-sombra);}
 .foto-noticia{aspect-ratio:16/9;border-radius:0;border-width:0 0 2px 0;border-style:dashed;border-color:#c7cfdb;}
 .cuerpo-noticia{padding:22px;display:flex;flex-direction:column;gap:8px;}
-.fecha-noticia{font-size:12.5px;color:var(--azul);font-weight:600;display:flex;align-items:center;gap:6px;}
+.fecha-noticia{font-size:12.5px;font-weight:600;}
 .cuerpo-noticia h3{font-size:17px;font-weight:600;}
 .cuerpo-noticia p{margin:0;font-size:14.5px;color:var(--tinta-sec);}
 .enlace-leer{font-size:14px;font-weight:600;color:var(--tinta);display:inline-flex;align-items:center;gap:6px;margin-top:4px;}
@@ -101,22 +113,16 @@ h1,h2,h3{margin:0;}
 .enlace-leer:hover i{transform:translateX(3px);}
 
 /* huella */
-.tarjeta-huella{position:relative;overflow:hidden;background:var(--superficie);border-radius:var(--r-xl);box-shadow:var(--sombra);padding:52px 32px;}
-.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.28;z-index:0;}
-.blob-1{width:320px;height:320px;background:var(--azul);top:-110px;left:-90px;}
-.blob-2{width:280px;height:280px;background:var(--verde);bottom:-120px;right:-70px;}
-.huella{position:relative;z-index:1;display:flex;justify-content:space-around;flex-wrap:wrap;gap:32px;text-align:center;}
+.tarjeta-huella{background:rgba(255,255,255,.88);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.7);border-radius:var(--r-xl);box-shadow:var(--vidrio-sombra);padding:52px 32px;}
+.huella{display:flex;justify-content:space-around;flex-wrap:wrap;gap:32px;text-align:center;}
 .cifra{display:flex;flex-direction:column;gap:6px;align-items:center;}
 .cifra i{font-size:20px;color:var(--tinta-sec);}
 .cifra strong{font-size:clamp(34px,5vw,50px);font-weight:700;line-height:1;}
 .cifra span{font-size:14px;color:var(--tinta-sec);}
-.cifra:nth-child(1) strong{color:var(--azul);}
-.cifra:nth-child(2) strong{color:var(--verde);}
-.cifra:nth-child(3) strong{color:var(--morado);}
 
 /* servicios */
-.grid-servicios{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
-.tarjeta-servicio{background:var(--superficie);border-radius:var(--r-lg);padding:30px 26px;box-shadow:var(--sombra);display:flex;flex-direction:column;gap:14px;}
+.grid-servicios{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.tarjeta-servicio{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:30px 26px;box-shadow:var(--vidrio-sombra);display:flex;flex-direction:column;gap:14px;}
 .icono-servicio{width:50px;height:50px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:22px;}
 .tarjeta-servicio:nth-child(1) .icono-servicio{background:rgba(59,169,224,.12);color:var(--azul);}
 .tarjeta-servicio:nth-child(2) .icono-servicio{background:rgba(15,175,151,.12);color:var(--verde);}
@@ -125,34 +131,34 @@ h1,h2,h3{margin:0;}
 .tarjeta-servicio p{margin:0;font-size:14.5px;color:var(--tinta-sec);}
 
 /* aliados */
-.franja-aliados{background:var(--superficie);border-radius:var(--r-lg);padding:36px 32px;box-shadow:var(--sombra);}
+.franja-aliados{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:36px 32px;box-shadow:var(--vidrio-sombra);}
 .fila-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px 48px;}
 .fila-logos img{height:42px;width:auto;max-width:130px;object-fit:contain;filter:grayscale(1);opacity:.72;transition:filter .2s,opacity .2s;}
 .fila-logos img:hover{filter:none;opacity:1;}
 @media (max-width:600px){.fila-logos img{height:32px;}.fila-logos{gap:28px 32px;}}
 
 /* cta */
-.banda-cta{background:var(--morado);color:#fff;border-radius:var(--r-xl);padding:56px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;}
+.banda-cta{background:linear-gradient(135deg,rgba(147,34,128,.82),rgba(176,164,255,.82));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.5);box-shadow:0 10px 32px rgba(90,20,80,.16), inset 0 1px 0 rgba(255,255,255,.4);color:#fff;border-radius:var(--r-xl);padding:56px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;}
 .banda-cta h2{font-size:26px;font-weight:600;}
 .banda-cta p{margin:0;max-width:620px;color:rgba(255,255,255,.85);font-size:15.5px;}
-.boton-cta{background:#fff;color:var(--morado);border:2px solid #fff;padding:14px 30px;border-radius:999px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s;}
+.boton-cta{background:#fff;color:var(--tinta);border:2px solid #fff;padding:14px 30px;border-radius:999px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s;}
 .boton-cta:hover{transform:translateY(-2px);}
 
 /* pie */
 .pie{max-width:1180px;margin:0 auto;padding:36px 24px 20px;text-align:center;color:var(--tinta-sec);font-size:13px;}
 
 /* nav flotante */
-.nav-flotante{position:fixed;left:24px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:14px 10px;display:flex;flex-direction:column;gap:6px;box-shadow:0 8px 30px rgba(20,40,80,.10);z-index:100;}
+.nav-flotante{position:fixed;left:24px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.55);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(255,255,255,.6);border-radius:999px;padding:14px 10px;display:flex;flex-direction:column;gap:6px;box-shadow:0 8px 28px rgba(20,30,60,.10), inset 0 1px 0 rgba(255,255,255,.6);z-index:100;}
 .nav-flotante a{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--tinta-sec);font-size:20px;position:relative;transition:background .15s,color .15s;}
-.nav-flotante a:hover{background:#f2f4f8;}
-.nav-flotante a.activo{background:var(--tinta);color:#fff;}
+.nav-flotante a:hover{background:rgba(255,255,255,.5);}
+.nav-flotante a.activo{background:rgba(255,255,255,.85);color:#4243ff;}
 .nav-flotante a .etiqueta{position:absolute;left:60px;background:var(--tinta);color:#fff;font-size:12px;font-weight:500;padding:6px 10px;border-radius:var(--r-sm);white-space:nowrap;opacity:0;transform:translateX(-6px);pointer-events:none;transition:.15s;}
 .nav-flotante a:hover .etiqueta{opacity:1;transform:translateX(0);}
 @media (max-width:860px){
   .nav-flotante{left:12px;right:12px;top:auto;bottom:14px;transform:none;flex-direction:row;justify-content:space-around;padding:8px;border-radius:24px;padding-bottom:calc(8px + env(safe-area-inset-bottom));}
   .nav-flotante a{width:auto;flex:1;flex-direction:column;gap:2px;font-size:19px;height:auto;padding:8px 0;border-radius:14px;}
   .nav-flotante a .etiqueta{position:static;opacity:1;transform:none;background:none;color:inherit;font-size:10px;padding:0;pointer-events:auto;font-weight:500;}
-  .nav-flotante a.activo .etiqueta{color:#fff;}
+  .nav-flotante a.activo .etiqueta{color:#4243ff;}
 }
 </style>
 </head>
@@ -161,13 +167,18 @@ h1,h2,h3{margin:0;}
 <header class="encabezado">
   <div class="fila-marca">
     <img class="logo-rcr" src="assets/logo.svg" alt="Redes Con Rostro">
-    <h1 class="eslogan"><span class="e-azul">cuidado</span>, <span class="e-verde">sostenibilidad</span> e <span class="e-morado">impacto</span></h1>
+    <h1 class="eslogan"><span class="gt gt-cuidado">cuidado,</span> <span class="gt gt-sostenibilidad">sostenibilidad</span><br><span class="gt gt-impacto">e impacto</span></h1>
   </div>
   <div class="barra-utilidad">
     <button class="idioma" type="button"><i class="ti ti-world" aria-hidden="true"></i>EN</button>
     <div class="redes-header">
       <a href="https://www.instagram.com/redesconrostro/?hl=es-la" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
-      <a href="https://www.facebook.com/Redesconrostroec/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/Redesconrostroec/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+          <mask id="mfb"><rect width="24" height="24" fill="#fff"/><path d="M14.5 21v-7.2h2.3l.35-2.75H14.5v-1.76c0-.8.22-1.34 1.37-1.34h1.46V5.23c-.25-.03-1.1-.11-2.1-.11-2.08 0-3.5 1.27-3.5 3.6v2.33H9.4v2.75h2.33V21z" fill="#000"/></mask>
+          <circle cx="12" cy="12" r="10" fill="currentColor" mask="url(#mfb)"/>
+        </svg>
+      </a>
       <a href="https://www.linkedin.com/company/redes-con-rostro/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></a>
       <a href="mailto:info@redesconrostro.org" aria-label="Correo"><i class="ti ti-mail" aria-hidden="true"></i></a>
       <a href="https://wa.link/dt3vji" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
@@ -179,32 +190,22 @@ h1,h2,h3{margin:0;}
   <div class="panel-foto marcador-foto">
     <i class="ti ti-photo" aria-hidden="true"></i>
     <span>foto: equipo o beneficiarios</span>
-    <small>recomendado 800×1000px</small>
-  </div>
-  <div class="panel-ilustracion">
-    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de cielo y colinas">
-      <rect width="400" height="300" fill="#dff1fc"/>
-      <ellipse cx="150" cy="85" rx="52" ry="28" fill="#ffffff"/>
-      <ellipse cx="192" cy="76" rx="38" ry="24" fill="#ffffff"/>
-      <path d="M0 215 Q100 175 200 210 T400 205 V300 H0 Z" fill="#a9d977"/>
-      <path d="M0 245 Q120 210 240 238 T400 233 V300 H0 Z" fill="#7fb84f"/>
-    </svg>
+    <small>recomendado 1200×1400px</small>
   </div>
   <div class="panel-texto">
-    <h2 class="eyebrow">nosotros</h2>
     <p>Somos una <b>organización no gubernamental</b> que busca <b>identificar</b> y <b>fomentar</b>, desde la investigación participativa, la construcción de redes de trabajo colaborativo con actores comprometidos con el cambio social.</p>
-    <p>¡Unidos por la <span class="destaque">transformación social</span>!</p>
+    <p>¡Unidos por la <span class="gt gt-transformacion">transformación social</span>!</p>
   </div>
 </section>
 
 <section class="seccion reveal">
-  <h2 class="titulo-seccion">últimas noticias</h2>
+  <h2 class="titulo-seccion">Últimas noticias</h2>
   <div class="grid-noticias">
     <article class="tarjeta-noticia">
       <div class="foto-noticia marcador-foto"><i class="ti ti-photo" aria-hidden="true"></i><span>foto</span><small>1200×675px</small></div>
       <div class="cuerpo-noticia">
-        <span class="fecha-noticia"><i class="ti ti-calendar" aria-hidden="true"></i>fecha de la noticia</span>
-        <h3>título de la noticia</h3>
+        <span class="fecha-noticia gt gt-fecha">fecha de la noticia</span>
+        <h3>Título de la noticia</h3>
         <p>extracto breve de la noticia, dos líneas como máximo para mantener la tarjeta ordenada.</p>
         <a class="enlace-leer" href="noticias.html">leer más <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
       </div>
@@ -212,8 +213,8 @@ h1,h2,h3{margin:0;}
     <article class="tarjeta-noticia">
       <div class="foto-noticia marcador-foto"><i class="ti ti-photo" aria-hidden="true"></i><span>foto</span><small>1200×675px</small></div>
       <div class="cuerpo-noticia">
-        <span class="fecha-noticia"><i class="ti ti-calendar" aria-hidden="true"></i>fecha de la noticia</span>
-        <h3>título de la noticia</h3>
+        <span class="fecha-noticia gt gt-fecha">fecha de la noticia</span>
+        <h3>Título de la noticia</h3>
         <p>extracto breve de la noticia, dos líneas como máximo para mantener la tarjeta ordenada.</p>
         <a class="enlace-leer" href="noticias.html">leer más <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
       </div>
@@ -223,39 +224,37 @@ h1,h2,h3{margin:0;}
 
 <section class="seccion reveal">
   <div class="tarjeta-huella">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
     <div class="huella">
-      <div class="cifra"><i class="ti ti-heart-handshake" aria-hidden="true"></i><strong>20</strong><span>aliados y cooperantes</span></div>
-      <div class="cifra"><i class="ti ti-users" aria-hidden="true"></i><strong>4.100</strong><span>beneficiarios</span></div>
-      <div class="cifra"><i class="ti ti-map-pin" aria-hidden="true"></i><strong>7</strong><span>provincias activas</span></div>
+      <div class="cifra"><i class="ti ti-heart-handshake" aria-hidden="true"></i><strong class="gt gt-veinte">20</strong><span>aliados y cooperantes</span></div>
+      <div class="cifra"><i class="ti ti-users" aria-hidden="true"></i><strong class="gt gt-cuatromil">4.100</strong><span>beneficiarios</span></div>
+      <div class="cifra"><i class="ti ti-map-pin" aria-hidden="true"></i><strong class="gt gt-siete">Siete</strong><span>provincias activas</span></div>
     </div>
   </div>
 </section>
 
 <section class="seccion reveal">
-  <h2 class="titulo-seccion">nuestros servicios</h2>
+  <h2 class="titulo-seccion">Nuestros servicios</h2>
   <div class="grid-servicios">
     <div class="tarjeta-servicio">
       <div class="icono-servicio"><i class="ti ti-building" aria-hidden="true"></i></div>
-      <h3>empresas</h3>
+      <h3>Empresas</h3>
       <p>Construimos espacios de encuentro entre empresas y comunidades, impulsando iniciativas de impacto social sostenible que generan valor compartido.</p>
     </div>
     <div class="tarjeta-servicio">
       <div class="icono-servicio"><i class="ti ti-network" aria-hidden="true"></i></div>
-      <h3>organizaciones</h3>
+      <h3>Organizaciones</h3>
       <p>Unimos esfuerzos con organizaciones públicas y no gubernamentales que buscan potenciar sinergias que generen transformaciones sostenibles e impacto real.</p>
     </div>
     <div class="tarjeta-servicio">
       <div class="icono-servicio"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
-      <h3>promotores sociales</h3>
+      <h3>Promotores sociales</h3>
       <p>Acompañamos agrupaciones sociales y colectivos en el desarrollo de iniciativas que fortalecen su organización e impulsan la promoción de agentes de cambio.</p>
     </div>
   </div>
 </section>
 
 <section class="seccion reveal">
-  <h2 class="titulo-seccion">aliados</h2>
+  <h2 class="titulo-seccion">Aliados</h2>
   <div class="franja-aliados">
     <div class="fila-logos">
       <img src="assets/aliados/tesalia.svg" alt="Tesalia" loading="lazy">
@@ -274,7 +273,7 @@ h1,h2,h3{margin:0;}
 
 <section class="seccion reveal">
   <div class="banda-cta">
-    <h2>únete a nosotros</h2>
+    <h2>Únete a nosotros</h2>
     <p>En Redes Con Rostro creemos en el poder del trabajo colaborativo. Te extendemos una cálida invitación a formar parte de un proceso significativo: el tejido de redes colaborativas en pro de la transformación social.</p>
     <a class="boton-cta" href="contacto.html">contáctanos <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
   </div>
@@ -283,11 +282,11 @@ h1,h2,h3{margin:0;}
 <footer class="pie">© <span id="anio"></span> Redes Con Rostro</footer>
 
 <nav class="nav-flotante" aria-label="navegación principal">
-  <a href="index.html" class="activo"><i class="ti ti-home" aria-hidden="true"></i><span class="etiqueta">inicio</span></a>
-  <a href="nosotros.html"><i class="ti ti-users" aria-hidden="true"></i><span class="etiqueta">nosotros</span></a>
-  <a href="proyectos.html"><i class="ti ti-target" aria-hidden="true"></i><span class="etiqueta">proyectos</span></a>
-  <a href="noticias.html"><i class="ti ti-news" aria-hidden="true"></i><span class="etiqueta">noticias</span></a>
-  <a href="contacto.html"><i class="ti ti-send" aria-hidden="true"></i><span class="etiqueta">contacto</span></a>
+  <a href="index.html" class="activo"><i class="ti ti-home" aria-hidden="true"></i><span class="etiqueta">Inicio</span></a>
+  <a href="nosotros.html"><i class="ti ti-users" aria-hidden="true"></i><span class="etiqueta">Nosotros</span></a>
+  <a href="proyectos.html"><i class="ti ti-target" aria-hidden="true"></i><span class="etiqueta">Proyectos</span></a>
+  <a href="noticias.html"><i class="ti ti-news" aria-hidden="true"></i><span class="etiqueta">Noticias</span></a>
+  <a href="contacto.html"><i class="ti ti-send" aria-hidden="true"></i><span class="etiqueta">Contacto</span></a>
 </nav>
 
 <script>
