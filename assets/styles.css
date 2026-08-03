@@ -184,3 +184,51 @@ h1,h2,h3{margin:0;line-height:1.2;}
   .nav-flotante{left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom, 0px));border-radius:24px;padding:8px;flex-direction:row;justify-content:space-around;}
   .nav-flotante a{flex:1;min-width:0;padding:8px 4px;}
 }
+
+/* ===== NOSOTROS ===== */
+/* hero reutiliza .intro / .panel-foto / .panel-texto de la home */
+.bloque{max-width:1180px;margin:0 auto;padding:36px 32px 0;}
+@media (max-width:600px){.bloque{padding:28px 20px 0;}}
+
+/* misión y visión */
+.grid-mv{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media (max-width:760px){.grid-mv{grid-template-columns:1fr;}}
+.tarjeta-mv{background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:32px 30px;box-shadow:var(--vidrio-sombra);text-align:center;}
+.tarjeta-mv .icono-mv{width:50px;height:50px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px;}
+.tarjeta-mv:nth-child(1) .icono-mv{background:rgba(51,168,222,.14);color:#1c7fae;}
+.tarjeta-mv:nth-child(2) .icono-mv{background:rgba(147,34,128,.14);color:#932280;}
+.tarjeta-mv h3{font-size:18px;font-weight:700;margin-bottom:10px;}
+.tarjeta-mv p{margin:0;font-size:14.5px;line-height:1.6;color:var(--tinta-sec);}
+
+/* zonas + mapa */
+.grid-zonas{display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;background:rgba(255,255,255,.6);backdrop-filter:var(--vidrio-blur);-webkit-backdrop-filter:var(--vidrio-blur);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-lg);padding:36px;box-shadow:var(--vidrio-sombra);}
+@media (max-width:760px){
+  .grid-zonas{grid-template-columns:1fr;}
+  .grid-zonas .mapa-wrap{order:1;}
+  .grid-zonas .zonas-lista{order:2;}
+}
+.zonas-texto p{margin:0 0 14px;font-size:14.5px;line-height:1.6;color:var(--tinta-sec);}
+.zonas-texto p b{color:var(--tinta);font-weight:600;}
+.zonas-hint{display:flex;align-items:center;gap:7px;font-size:13px;color:#1c7fae;font-weight:500;}
+.zonas-hint i{font-size:15px;}
+@media (max-width:760px){.zonas-hint{justify-content:center;text-align:center;}.zonas-texto{text-align:center;}}
+.mapa-wrap{position:relative;display:flex;justify-content:center;}
+.mapa-ec{width:100%;max-width:360px;height:auto;}
+.mapa-ec .prov{stroke:#fff;stroke-width:1;transition:opacity .15s;}
+.mapa-ec .activa{cursor:pointer;}
+.mapa-ec .activa:hover{opacity:.75;}
+.mapa-tooltip{position:absolute;background:var(--tinta);color:#fff;padding:8px 12px;border-radius:10px;pointer-events:none;opacity:0;transition:opacity .12s;z-index:5;max-width:180px;box-shadow:0 4px 14px rgba(20,30,60,.2);}
+.mapa-tooltip.visible{opacity:1;}
+.mapa-tooltip strong{display:block;font-size:13px;font-weight:600;margin-bottom:2px;}
+.mapa-tooltip span{display:block;font-size:11.5px;line-height:1.4;color:rgba(255,255,255,.8);}
+
+/* equipo (texto + foto + botón) reutiliza .intro */
+.btn-secundario{background:#fff;color:var(--tinta);border:1.5px solid #e3e8f0;padding:12px 24px;border-radius:999px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:border-color .15s,color .15s;}
+.btn-secundario:hover{border-color:#33a8de;color:#33a8de;}
+.btn-equipo{background:linear-gradient(135deg,#18ae97,#008bb8);color:#fff;border:none;padding:13px 26px;border-radius:999px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s;}
+.btn-equipo:hover{transform:translateY(-2px);}
+
+/* variante voluntarios: mismo diseño que Únete, degradado marrón-oliva */
+.banda-cta-voluntarios{background:linear-gradient(135deg,rgba(89,60,24,.85),rgba(152,160,106,.85));box-shadow:0 10px 32px rgba(60,50,20,.16), inset 0 1px 0 rgba(255,255,255,.4);}
+.banda-cta-voluntarios .cta-badge{color:#5e5230;}
+.banda-cta-voluntarios .cta-item-icono{color:#5e5230;}
